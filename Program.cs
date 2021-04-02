@@ -9,11 +9,11 @@ namespace TicTacToe
             Console.WriteLine("Welcome to TicTacToe!\n");
             Console.Write("Please enter name Player 1 (X): ");
             String namePlayer1 = Console.ReadLine();
-            //Console.WriteLine(namePlayer1); Testar variabeln - OK
+            //Console.WriteLine(namePlayer1); Testing variable - OK
             Console.Write("Please enter name Player 2 (O): ");
             String namePlayer2 = Console.ReadLine();
             
-            //Console.WriteLine(namePlayer2); Testar variabeln - OK
+            //Console.WriteLine(namePlayer2); Testing variable - OK
             string grid1 = " ";
             string grid2 = " ";
             string grid3 = " ";
@@ -24,12 +24,12 @@ namespace TicTacToe
             string grid8 = " ";
             string grid9 = " ";
             
-            String[] moves = {grid1,grid2,grid3,grid4,grid5,grid6,grid7,grid8,grid9}; //Ändrar variablerna grid# till en array med namnet moves
+            String[] moves = {grid1,grid2,grid3,grid4,grid5,grid6,grid7,grid8,grid9}; //Changes the variables grid# to an array named moves.
             
-            Grid(moves); //Overload med 11 variabler, därav moves-arrayen.
+            Grid(moves); //Go-to method called Grid, bring information from array moves.
             int turn = 1;
             bool turnPlayer1 = true;
-            //Loopa härifrån. If för vilken spelares tur. 
+            //Loop from here. If to determine player turn.
 
             while (turn < 10)
             {
@@ -51,19 +51,19 @@ namespace TicTacToe
                     Draw2(drawPlayer2, moves);
                 }
                 
-                //Console.WriteLine(turnPlayer1); Testar variabeln                
+                //Console.WriteLine(turnPlayer1); Testing variable. - Ok                
 
                 Console.Clear();
                 Grid(moves);
                 turnPlayer1 = !turnPlayer1;
-                //Console.WriteLine(turnPlayer1); Testar variabeln
+                //Console.WriteLine(turnPlayer1); Testing variable - Ok
                 turn ++;
             }
             //Loopa hit.             
-            Console.ReadKey(); //Paus innan nedstängning
+            Console.ReadKey(); //Pause before shutdown. 
         }
 
-        //                  ---=== Methods nedan ===---
+        //                  ---=== Methods below ===---
         static void Grid(String[] moves)
         {
             Console.WriteLine("-------------");
@@ -76,7 +76,7 @@ namespace TicTacToe
         }
         static void Draw(int drawPlayer1, String[] moves)
         {
-            // LOOPA HÄR, så man får fler chanser att göra rätt för sig. 
+            // LOOP FROM HERE, to let players ha more chanses if square is occupied. (Pending)
             //Console.WriteLine(drawPlayer1);
             if (moves[drawPlayer1] == " ")
             {
@@ -84,8 +84,8 @@ namespace TicTacToe
             } 
             else
             {
-                Console.WriteLine("Rutan är redan tagen, idiot!"); //Anchor till ovan (där man väljer ruta) Annars går turen över till andra spelaren. 
-                Console.ReadKey();//Paus innan vidaregång   
+                Console.WriteLine("Square is occupied, idiot!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
+                Console.ReadKey();//Pause before proceeding.  
             }    
                         
         }
@@ -98,8 +98,8 @@ namespace TicTacToe
             }
             else
             {
-                Console.WriteLine("Rutan är redan tagen, idiot!"); //Anchor till ovan (där man väljer ruta) Annars går turen över till andra spelaren. 
-                Console.ReadKey();//Paus innan vidaregång
+                Console.WriteLine("Square is occupied, idiot!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
+                Console.ReadKey();//Pause before proceeding.
             }
 
         }
