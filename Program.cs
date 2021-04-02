@@ -35,17 +35,19 @@ namespace TicTacToe
             {
                 if (turnPlayer1 == true)
                 {
+
                     Console.Write(namePlayer1 + " please select a square. (1-9) ");
-                    string txtDrawPlayer1 = Console.ReadLine();
+                    string txtDrawPlayer1 = Console.ReadLine(); //Validate input!
                     int drawPlayer1 = int.Parse(txtDrawPlayer1);
                     drawPlayer1 = drawPlayer1 - 1;   
                     //Console.WriteLine(drawPlayer1); 
                     Draw(drawPlayer1, moves);
-                    //Check for 3 in a row here
+                    //Check for 3 in a row here 
+
                 } else
                 {
                     Console.Write(namePlayer2 + " please select a square. (1-9) "); 
-                    string txtDrawPlayer2 = Console.ReadLine();
+                    string txtDrawPlayer2 = Console.ReadLine(); //Validate input!
                     int drawPlayer2 = int.Parse(txtDrawPlayer2);
                     drawPlayer2 = drawPlayer2 - 1;
                     //Console.WriteLine(drawPlayer2);
