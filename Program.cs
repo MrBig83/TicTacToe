@@ -9,7 +9,7 @@ namespace TicTacToe
             Console.WriteLine("Welcome to TicTacToe!\n");
             Console.Write("Please enter name Player 1 (X): ");
             String namePlayer1 = Console.ReadLine();
-            //Console.WriteLine(namePlayer1); Testing variable - OK
+            //Console.WriteLine(namePlayer1); Testing variable - OK (Delete line when game is complete.)
             Console.Write("Please enter name Player 2 (O): ");
             String namePlayer2 = Console.ReadLine();
             
