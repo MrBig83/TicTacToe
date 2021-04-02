@@ -12,7 +12,7 @@ namespace TicTacToe
             //Console.WriteLine(namePlayer1); Testing variable - OK (Delete line when game is complete.)
             Console.Write("Please enter name Player 2 (O): ");
             String namePlayer2 = Console.ReadLine();
-            
+            string winner = "none";
             //Console.WriteLine(namePlayer2); Testing variable - OK
             string grid1 = " ";
             string grid2 = " ";
@@ -41,6 +41,7 @@ namespace TicTacToe
                     drawPlayer1 = drawPlayer1 - 1;   
                     //Console.WriteLine(drawPlayer1); 
                     Draw(drawPlayer1, moves);
+                    //Check for 3 in a row here
                 } else
                 {
                     Console.Write(namePlayer2 + " please select a square. (1-9) "); 
@@ -49,6 +50,7 @@ namespace TicTacToe
                     drawPlayer2 = drawPlayer2 - 1;
                     //Console.WriteLine(drawPlayer2);
                     Draw2(drawPlayer2, moves);
+                    //Check for 3 in a row here
                 }
                 
                 //Console.WriteLine(turnPlayer1); Testing variable. - Ok                
@@ -59,7 +61,12 @@ namespace TicTacToe
                 //Console.WriteLine(turnPlayer1); Testing variable - Ok
                 turn ++;
             }
-            //Loopa hit.             
+            //Loopa hit.  
+            if (winner == "none")
+            {
+                Console.WriteLine("It´s a TIE!");//Tie breaker? 
+            }  
+
             Console.ReadKey(); //Pause before shutdown. 
         }
 
@@ -76,7 +83,7 @@ namespace TicTacToe
         }
         static void Draw(int drawPlayer1, String[] moves)
         {
-            // LOOP FROM HERE, to let players ha more chanses if square is occupied. (Pending)
+            // LOOP FROM HERE, to let players have more chanses if square is occupied. (Pending) Is a loop the right way to do it? 
             //Console.WriteLine(drawPlayer1);
             if (moves[drawPlayer1] == " ")
             {
@@ -84,7 +91,7 @@ namespace TicTacToe
             } 
             else
             {
-                Console.WriteLine("Square is occupied, idiot!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
+                Console.WriteLine("Square is occupied, idiot! Try again!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
                 Console.ReadKey();//Pause before proceeding.  
             }    
                         
