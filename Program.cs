@@ -137,9 +137,11 @@ namespace TicTacToe
         if (moves[0] == "X" && moves[1] == "X" && moves[2] == "X")
             {
                 Console.WriteLine("Winner winner chicken dinner!");
+                Console.ReadKey();
             } else
             {   
                 Console.WriteLine("No winner yet...");
+                Console.ReadKey();
             }
         }
            
