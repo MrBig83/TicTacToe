@@ -54,7 +54,14 @@ namespace TicTacToe
                     drawPlayer2 = drawPlayer2 - 1;
                     //Console.WriteLine(drawPlayer2);
                     Draw2(drawPlayer2, moves);
-                    wincheck(moves);//Check for 3 in a row here
+                    //wincheck(moves);//Check for 3 in a row here - Metoden funkar, men innehållet är skräp.
+                    if (moves[0] == "X" && moves[1] == "X" && moves[2] == "X")
+                    {
+                        Console.WriteLine("Winner winner chicken dinner!");
+                    } else
+                    {   
+                        Console.WriteLine("No winner yet...");
+                    }
                 }
                 
                 //Console.WriteLine(turnPlayer1); Testing variable. - Ok                
@@ -131,17 +138,19 @@ namespace TicTacToe
             Console.WriteLine("Square is occupied, idiot!");
             Console.ReadKey();
         }
-        static void wincheck(String[] moves)
-        {
-            if (moves[0] && moves[1] && moves[2] == "X") //Felar som fan... 
-            {
-                Console.WriteLine("WINNER WINNER CHICKEN DINNER!!");
-            }
-            else
-            {
-                Console.WriteLine("No winner yet...");
-            }
-        }
+        //static void wincheck(String[] moves) //Metoden funkar, men innehållet måste kontrolleras. 
+        
+           
+            
+            //if (moves[0] && moves[1] && moves[2] == "X") //Felar som fan... 
+            //{
+            //    Console.WriteLine("WINNER WINNER CHICKEN DINNER!!");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No winner yet...");
+            //}
+        
      
     }
 
