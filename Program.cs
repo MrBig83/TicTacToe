@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using System.Collections;
 
 namespace TicTacToe
 {
@@ -52,7 +54,7 @@ namespace TicTacToe
                     drawPlayer2 = drawPlayer2 - 1;
                     //Console.WriteLine(drawPlayer2);
                     Draw2(drawPlayer2, moves);
-                    //Check for 3 in a row here
+                    wincheck(moves);//Check for 3 in a row here
                 }
                 
                 //Console.WriteLine(turnPlayer1); Testing variable. - Ok                
@@ -82,7 +84,17 @@ namespace TicTacToe
             Console.WriteLine("-------------");
             Console.WriteLine("| {0} | {1} | {2} |", moves[6], moves[7], moves[8]);
             Console.WriteLine("-------------");
-        }
+
+            //Ändringar 2021-12-19. Kommenterat två rader
+            //bool wincheck = false; 
+            //    Console.WriteLine(String.Compare(moves[0], moves[1], wincheck) == 0 ? "true" : "false");
+            //
+            //WinCheck - Funkar, men knepig att få större? 
+            //Console.WriteLine("The Strings are equal when case is ignored? {0}",
+            //    String.Compare(moves[0], moves[1], wincheck) == 0
+            //                   ? "true" : "false" );
+        }       
+
         static void Draw(int drawPlayer1, String[] moves)
         {
             // LOOP FROM HERE, to let players have more chanses if square is occupied. (Pending) Is a loop the right way to do it? 
@@ -93,8 +105,9 @@ namespace TicTacToe
             } 
             else
             {
-                Console.WriteLine("Square is occupied, idiot! Try again!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
-                Console.ReadKey();//Pause before proceeding.  
+                //Console.WriteLine("Square is occupied, idiot! Try again!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
+                //Console.ReadKey();//Pause before proceeding. 
+                Occupied(); 
             }    
                         
         }
@@ -107,10 +120,27 @@ namespace TicTacToe
             }
             else
             {
-                Console.WriteLine("Square is occupied, idiot!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
-                Console.ReadKey();//Pause before proceeding.
+                //Console.WriteLine("Square is occupied, idiot!"); //Here I want to make it possible for players to get a second chance if they´re assigning a square that is occupied.
+                //Console.ReadKey();//Pause before proceeding.
+                Occupied();
             }
 
+        }
+        static void Occupied()
+        {
+            Console.WriteLine("Square is occupied, idiot!");
+            Console.ReadKey();
+        }
+        static void wincheck(String[] moves)
+        {
+            if (moves[0] && moves[1] && moves[2] == "X") //Felar som fan... 
+            {
+                Console.WriteLine("WINNER WINNER CHICKEN DINNER!!");
+            }
+            else
+            {
+                Console.WriteLine("No winner yet...");
+            }
         }
      
     }
