@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections;
+using System.Threading;
 
 namespace TicTacToe
 {
@@ -44,7 +45,7 @@ namespace TicTacToe
                     drawPlayer1 = drawPlayer1 - 1;   
                     //Console.WriteLine(drawPlayer1); 
                     Draw(drawPlayer1, moves);
-                    //Check for 3 in a row here 
+                    //wincheck(moves);//Check for 3 in a row here 
 
                 } else
                 {
@@ -54,7 +55,7 @@ namespace TicTacToe
                     drawPlayer2 = drawPlayer2 - 1;
                     //Console.WriteLine(drawPlayer2);
                     Draw2(drawPlayer2, moves);
-                    wincheck(moves);//Check for 3 in a row here - Metoden funkar, men innehållet är skräp.
+                    //wincheck(moves);//Check for 3 in a row here - Metoden funkar, men innehållet är skräp.
                     
                 }
                 
@@ -65,6 +66,7 @@ namespace TicTacToe
                 turnPlayer1 = !turnPlayer1;
                 //Console.WriteLine(turnPlayer1); Testing variable - Ok
                 turn ++;
+                wincheck(moves);
             }
             //Loopa hit.  
             if (winner == "none")
@@ -134,14 +136,16 @@ namespace TicTacToe
         }
         static void wincheck(String[] moves) //Metoden funkar, men innehållet måste kontrolleras. 
         {
-        if (moves[0] == "X" && moves[1] == "X" && moves[2] == "X")
+        if (moves[0] == "X" && moves[1] == "X" && moves[2] == "X")//Lägg till alla tänkbara kombinationer av vinst. 
             {
                 Console.WriteLine("Winner winner chicken dinner!");
-                Console.ReadKey();
+                Console.ReadKey();//Paus för att man ska hinna se meddelandet ovan. 
+                Environment.Exit(0);//Avslutar programmet. 
             } else
             {   
                 Console.WriteLine("No winner yet...");
-                Console.ReadKey();
+                Thread.Sleep(1000);
+                //Console.ReadKey();//Kan man få en timed pause istället för readkey?
             }
         }
            
